@@ -1,0 +1,7 @@
+-- 1.가격이 가장 비싼 식품 / 2.전체 정보 조회
+SELECT *
+FROM FOOD_PRODUCT
+WHERE PRICE = (
+    SELECT MAX(PRICE)
+    FROM FOOD_PRODUCT
+)
