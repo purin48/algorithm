@@ -1,0 +1,6 @@
+-- ANIMAL_TYPE이 멍멍이와 고양이인 게 각각 몇 마리인지 count
+-- 고양이 먼저 조회
+SELECT ANIMAL_TYPE, COUNT(*)
+FROM ANIMAL_INS
+GROUP BY ANIMAL_TYPE
+ORDER BY ANIMAL_TYPE;
