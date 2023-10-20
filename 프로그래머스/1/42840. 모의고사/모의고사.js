@@ -10,16 +10,12 @@ function solution(answers) {
         answers.forEach((ans, ansIdx) => {
             // answers 배열과 수포자 정답 길이 맞추기
             if(ans === item[ansIdx % item.length]) {
-                console.log(ans);
                 cnt[itemIdx] += 1;
             }
         })
     })
     
-    console.log("---")
     let max = Math.max(...cnt);
-    console.log(cnt);
-    console.log(max);
     
     if(cnt[0] === max) {
         answer.push(1);
@@ -31,6 +27,5 @@ function solution(answers) {
         answer.push(3);
     }
     
-    console.log(answer);
     return answer;
 }
