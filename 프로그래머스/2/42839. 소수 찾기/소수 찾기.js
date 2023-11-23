@@ -14,29 +14,24 @@ const recursive = (numStr, addNum) => {
 }
 
 function solution(numbers) {
-    let answer = 0;
-    
+    const arr = [];
     
     // 재귀함수 호출
     recursive("", numbers);
     
-    const arr = [];
     primeNumSet.forEach((item) => arr.push(Number(item)));
-    const setNum = new Set(arr);
+    const setNum = new Set(arr); // 중복제거
     
     // 소수 판별
     setNum.forEach((item) => {
         if(item < 2) {
             setNum.delete(item);
-            return false;
         };
         for(let j=2; j<=Math.floor(Math.sqrt(item)); j++){
             if(item % j === 0) {
                 setNum.delete(item);
-                return false;
             }
         }
-        return true;
     })
     
     return setNum.size;
