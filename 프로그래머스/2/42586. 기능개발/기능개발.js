@@ -14,7 +14,6 @@ function solution(progresses, speeds) {
     })
     
     // 2. 걸리는 일수를 비교
-    let wow = 0;
     for(let i=0; i<dayCntArr.length; i++){
         // 2-1. 배열의 첫번째 요소는 무조건 bigNum
         if(i === 0) bigNum = dayCntArr[i];
