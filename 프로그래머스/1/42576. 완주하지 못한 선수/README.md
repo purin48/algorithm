@@ -1,10 +1,10 @@
 # [level 1] 완주하지 못한 선수 - 42576 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42576) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42576#qna) 
 
 ### 성능 요약
 
-메모리: 56.8 MB, 시간: 89.53 ms
+메모리: 96.3 MB, 시간: 76.02 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2023년 10월 5일 21:28:2
+2024년 05월 06일 03:45:48
 
 ### 문제 설명
 
