@@ -1,33 +1,23 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class Solution {
-    static String VOWELS = "AEIOU";
-    static List<String> dictionary = new ArrayList<>();
-
-    // 모든 단어를 생성하는 함수
-    private void generateWords(String currentWord) {
-        // 사전의 단어 길이가 5 이상이 되면 종료
-        if (currentWord.length() > 5) return;
-
-        // 현재 단어를 사전에 추가
-        dictionary.add(currentWord);
-
-        // 각 모음에 대해 재귀 호출하여 단어를 생성
-        for (int i = 0; i < VOWELS.length(); i++) {
-            generateWords(currentWord + VOWELS.charAt(i));
-        }
-    }
-
     public int solution(String word) {
-        // 사전 초기화 및 단어 생성 시작
-        generateWords("");
+        // 1. 각 자리에서 사용되는 알파벳의 배열 정의
+        String vowels = "AEIOU";
 
-        // 사전 리스트를 정렬
-        Collections.sort(dictionary);
+        // 2. 각 자리의 가중치(해당 자리의 문자가 바뀔 때마다 이동하는 인덱스 수)
+        int[] weights = {781, 156, 31, 6, 1};
 
-        // word의 위치를 찾고 1을 더해 반환
-        return dictionary.indexOf(word);
+        int index = 0; // 3. 최종 인덱스를 저장할 변수 선언
+
+        // 4. 단어의 각 문자별로 해당 문자의 위치를 계산
+        for (int i = 0; i < word.length(); i++) {
+            // 5. 현재 문자의 인덱스를 모음 배열에서 찾음
+            int charIndex = vowels.indexOf(word.charAt(i));
+
+            // 6. 각 자리에 해당하는 가중치를 곱하여 인덱스 증가
+            // 현재 자리의 문자가 바뀔 때마다 이동하는 수(가중치)만큼 곱해주고, 1을 더해줘서 현재 위치를 포함
+            index += charIndex * weights[i] + 1; 
+        }
+
+        return index; // 7. 최종 계산된 인덱스를 반환
     }
 }
