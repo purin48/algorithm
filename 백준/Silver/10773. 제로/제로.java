@@ -5,28 +5,25 @@ import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        // 1. 정수 K 입력 받기
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int K = Integer.parseInt(br.readLine());
+        int answer = 0;
+        Stack<Integer> stack = new Stack<>();
 
-        // 2. Stack 생성
-        Stack<Integer> totalStack = new Stack<>();
-
-        // 3. 입력수만큼 반복
-        for(int i=0; i<K; i++) {
-            int curNum = Integer.parseInt(br.readLine());
-
-            // 3-1. 정수가 0인 경우 최근 수 지우기
-            if(!totalStack.isEmpty() && curNum == 0) {
-                totalStack.pop();
-            }
-            else {
-                // 3-2. 아닌 경우 현재 수 넣어주기
-                totalStack.push(curNum);
+        for (int i=0; i<K; i++) {
+            int N = Integer.parseInt(br.readLine());
+            if(N == 0) {
+                stack.pop();
+            } else {
+                stack.push(N);
             }
         }
 
-        // 4. 전체 합 구하기
-        System.out.println(totalStack.stream().mapToInt(Integer::intValue).sum());
+        while(!stack.isEmpty()) {
+            answer += stack.pop();
+        }
+
+        System.out.println(answer);
     }
 }
